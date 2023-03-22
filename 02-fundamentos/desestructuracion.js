@@ -12,9 +12,14 @@ const deadpool = {
 // const apellido = deadpool.apellido;
 // const poder    = deadpool.poder;
 
-function imprimeHeroe( heroe ) {
-    const { nombre, apellido, poder, edad = 0 } = deadpool;
+function imprimeHeroe({ nombre, apellido, poder, edad = 0 }) {
     console.log(nombre, apellido, poder, edad);
 }
 
-imprimeHeroe(deadpool);
+// imprimeHeroe(deadpool);
+const heroes = ['Deadpool', 'Superman', 'Batman'];
+
+// const h1 = heroes[0];
+const [ , , h3] = heroes;
+
+console.log(h3);
