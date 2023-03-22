@@ -44,11 +44,17 @@ const getSalario = ( id, callback ) => {
     });
 }
 
-const getInfoUsuario = async() => {
-    return 'Hola mundo';
+const getInfoUsuario = async( id ) => {
+    try {
+        const empleado = await getEmpleado(id);
+        const salario = await getSalario(id);
+        return `El salario del empleado: ${ empleado } es de ${ salario }`;
+    } catch (error) {
+        throw error;
+    }
 };
 
-getInfoUsuario()
-    .then( msg => console.log(msg));
-
-const id = 1;
+const id = 4;
+getInfoUsuario(id)
+    .then( msg => console.log(msg))
+    .catch( err => console.log(err));
