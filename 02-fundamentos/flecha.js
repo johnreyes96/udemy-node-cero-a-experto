@@ -1,4 +1,7 @@
-function sumar( a, b = 10 ) {
+// function sumar( a, b ) {
+//     return a + b;
+// }
+const sumar = (a, b = 10) => {
     return a + b;
 }
 
