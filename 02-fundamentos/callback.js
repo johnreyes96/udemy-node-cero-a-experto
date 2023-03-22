@@ -3,16 +3,17 @@
 // }, 1000);
 
 const getUsuarioByID = ( id, callback ) => {
-    const usuario = {
+    const user = {
         id,
         nombre: 'Fernando'
     }
 
     setTimeout(() => {
-        callback(usuario);
+        callback(user);
     }, 1500);
 }
 
-getUsuarioByID(10, () => {
-    console.log('Hola mundo');
+getUsuarioByID(10, ( usuario ) => {
+    console.log(usuario.id);
+    console.log(usuario.nombre.toUpperCase());
 });
