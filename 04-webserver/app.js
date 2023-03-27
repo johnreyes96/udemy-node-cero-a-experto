@@ -1,16 +1,8 @@
-const http = require('http');
+const express = require('express')
+const app = express()
 
-http.createServer( (req, res) => {
-    res.setHeader('Content-Disposition', 'attachment; filename=lista.csv');
-    res.writeHead(200, { 'Content-Type': 'application/csv' });
-
-    res.write('id, nombre\n');
-    res.write('1, Fernando\n');
-    res.write('2, Maria\n');
-    res.write('3, Juan\n');
-    res.write('4, Pedro\n');
-    res.end();
+app.get('/', function (req, res) {
+    res.send('Hello World')
 })
-.listen(8080);
 
-console.log('Escuchando el puerto', 8080);
+app.listen(8080)
