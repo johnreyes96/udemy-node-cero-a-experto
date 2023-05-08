@@ -8,10 +8,12 @@ const { usuariosGet,
         usuariosPatch,
         usuariosDelete,
         usuariosPost } = require('../controllers/usuarios');
+const { validarJWT } = require('../middlewares/validar-jwt');
 
 const router = Router();
 
 router.get('/', usuariosGet);
+
 router.post('/', [
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('password', 'El password debe ser más de 6 letras').isLength(min = 6),
@@ -31,6 +33,7 @@ router.put('/:id', [
 router.patch('/', usuariosPatch);
 
 router.delete('/:id', [
+    validarJWT,
     check('id', 'No es un ID Válido').isMongoId(),
     check('id').custom(existeUsuarioPorId),
     validarCampos
