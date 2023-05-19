@@ -11,8 +11,10 @@ router.get('/', (req, res) => {
     res.json('get');
 });
 
-// Obtener una categoria - publico
-router.get('/:id', (req, res) => {
+// Obtener una categoria por id - publico
+router.get('/:id', [
+    check('id').custom(existeCategoria)
+], (req, res) => {
     res.json('get - id');
 });
 

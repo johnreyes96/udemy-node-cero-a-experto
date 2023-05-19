@@ -23,6 +23,8 @@ const existeUsuarioPorId = async( id ) => {
     }
 }
 
+const existeCategoria = () => {}
+
 module.exports = {
     esRoleValido,
     emailExiste,
